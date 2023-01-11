@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css">
+
+    <title>CreditScore Prediction</title>
+</head>
+
+<body>
+    <div class="alert alert-success alert-dismissible fade show text-center mb-0" role="alert">
+        <strong>Welcome to CreditScore Prediction machine</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-warning" href="#">CreditScore Prediction</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Contact us</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" >Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://source.unsplash.com/1600x700/?money,bank" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>CreditScore prediction</h5>
+              <p>In this project our top priority is to predict Creditscore.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://source.unsplash.com/1600x600/?office" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>CreditScore prediction</h5>
+                <p>In this project our top priority is to predict Creditscore.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://source.unsplash.com/1600x600/?loan,atm,money,creditcard" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Creditscore prediction</h5>
+                <p>In this project our top priority is to predict Creditscore.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="container">
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h2 class="fw-normal">Fill this form to predict Creditscore.</h2>
+            <p class=" text-muted"><b>Your credit score is more than just a number. A better score can help unlock the things you want most —
+                                    like a new credit card or the best loan rates in the market.</b>
+            </p>
+           
+        </div>
+        
+        
+
+
+<body>
+    <div class="login">
+        <h1>Check your Credit Score</h1>
+    </div>
+    <div class="container">
+        
+        <form action="{{ url_for('predict')}}" method="post">
+            <div id="CS" class="column">
+                <h2 class="input"><strong>Month</strong></h2> <br> 
+                <select name="month" id="month" placeholder="Enter the month.." required="required">
+                <option value="0">April</option>
+                <option value="1">August</option>
+                <option value="2">February</option>
+                <option value="3">January</option>
+                <option value="4">July</option>
+                <option value="5">June</option>
+                <option value="6">March</option>
+                <option value="7">May</option>
+                 </select>
+                <h2 class="input"><strong>Age</strong></h2> <input class="age" type="text" name="AGE" placeholder="Enter your age.." required="required"><br>
+                <h2 class="input"><strong>Occupation</strong></h2>
+                <br>
+  <select name="occupation" id="occupation" placeholder="Enter your occupation.." required="required">
+    <option value="0">Accountant</option>
+    <option value="1">Architect</option>
+    <option value="2">Developer</option>
+    <option value="3">Doctor</option>
+    <option value="4">Engineer</option>
+    <option value="5">Entrepreneur</option>
+    <option value="6">Journalist</option>
+    <option value="7">Lawyer</option>
+    <option value="8">Manager</option>
+    <option value="9">Mechanic</option>
+    <option value="10">Media Manager</option>
+    <option value="11">Musician</option>
+    <option value="12">Scientist</option>
+    <option value="13">Teacher</option>
+    <option value="14">Writer</option>
+  </select>
+                <h2 class="input"><strong>Annual Income</strong></h2> <input class="annual_income" type="text" name="AI" placeholder="Income in dollars.." required="required"><br>
+                <h2 class="input"><strong>Monthly Inhand Salary</strong></h2> <input class="mon_is" type="text" name="MIS" placeholder="Salary in dollars.." required="required"><br>
+                
+                <h2 class="input"><strong>Number of Credit Cards</strong></h2> <input class="ncc" type="text" name="NCC" placeholder="No. of Credit Cards.." required="required"><br>
+                <h2 class="input"><strong>Interest Rate</strong></h2> <input class="ir" type="text" name="IR" placeholder="Interest rate.." required="required"><br>
+                <h2 class="input"><strong>Number of Loans</strong></h2> <input class="nol" type="text" name="NOL" placeholder="No. of loans.." required="required"><br>
+                <h2 class="input"><strong>Delay from due date</strong></h2> <input class="dfdd" type="text" name="DFDD" placeholder="Delay in days.." required="required"><br>
+                <h2 class="input"><strong>Number of Delayed Payments</strong></h2> <input class="ndp" type="text" name="NDP" placeholder="No. of delays.." required="required"><br>
+            </div>
+            <div class="column">
+                <h2 class="input"><strong>Changed Credit Limit</strong></h2> <input class="ccl" type="text" name="CCL" placeholder="Changed credit limit.." required="required"><br>
+                <h2 class="input"><strong>Number of Credit Inquiries</strong></h2> <input class="nci" type="text" name="NCI" placeholder="No. of inquiries.." required="required"><br>
+                <h2 class="input"><strong>Credit Mix</strong></h2><br>
+  <input type="radio" name="credit_mix" value="0" required>Bad<br>
+  <input type="radio" name="credit_mix" value="1" required>Standard<br>
+  <input type="radio" name="credit_mix" value="2" required>Good<br>
+  <h2 class="input"><strong>Outstanding Debt</strong></h2> <input class="od" type="text" name="OD" placeholder=" Debt in dollars.." required="required"><br>
+                <h2 class="input"><strong>Credit Utilization ratio</strong></h2> <input class="cur" type="text" name="CUR" placeholder="Credit utilization ratio.." required="required"><br>
+                <h2 class="input"><strong>Credit History Age</strong></h2> <input class="cha" type="text" name="CHA" placeholder="Credit History in months.." required="required"><br>
+                <h2 class="input"><strong>Payment of Minimum Amount</strong></h2><br>
+  <input type="radio" name="payment_of_min_amount" value="1" required>Yes<br>
+  <input type="radio" name="payment_of_min_amount" value="0" required>No<br>
+                <h2 class="input"><strong>Total EMI per month</strong></h2> <input class="temi" type="text" name="TEMI" placeholder="EMI in dollars.." required="required"><br>
+                <h2 class="input"><strong>Amount Invested monthly</strong></h2> <input class="aim" type="text" name="AIM" placeholder="Amount in dollars.." required="required"><br>
+                
+                <h2 class="input"><strong> Monthly Balance</strong></h2> <input class="m_b" type="text" name="MB" placeholder="Balance in dollars.." required="required"><br> <br> 
+                <br>
+                <br>
+                
+            </div>
+           
+            <button type="submit" class="button">Check</button>
+            <br>
+            <br>
+            
+    </div>
+    </form>
+    
+    <div id="result">
+        <p class="resultscore" <mark style="color:#f96d00;font-family:didot;font-weight: bold; word-spacing: 2px;text-align: center;font-size:26px;left:0; line-height:50px; margin-top: -75px; position: absolute;  top: 50%; width: 100%;background: white;">{{ prediction_text }}</mark></p>
+    </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+        
+</body>
+
+</html>
